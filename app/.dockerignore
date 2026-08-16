@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+testing_notebook.ipynb
+
+# 13 MB of worked examples: read from the repo, uploaded through the browser, never served
+# from inside the image.
+examples/
+
+# Runtime state. The compose file binds ./data at /opt/data instead.
+data/
+
+# The dummy key stays — it is what upstream ships, and app/README.md documents replacing it.
+private_key/private_key.pem

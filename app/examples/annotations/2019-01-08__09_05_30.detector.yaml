@@ -1,0 +1,108 @@
+# Detector findings for 2019-01-08/09_05_30.ulg, from 2019-01-08__09_05_30.verdict.json.
+# One category per (issue class, severity, plot); error is orange, warning amber.
+# Findings carrying t_first_us also get a point interval at that instant.
+
+version: 1
+sources:
+  - name: Detector
+    annotations:
+      - category: sead_external_position (error)
+        graph: Local Position X
+        color: "#d55e00"
+        intervals:
+          - start: "5:27.609"
+            end: "5:49.958"
+            annotation: "leg 4 translate, regression_residual on vehicle_local_position.x, vx"
+            value: "x vs vx 0.4801 past max 0.1575"
+      - category: sead_mechanical (error)
+        graph: Actuator Outputs (Main)
+        color: "#d55e00"
+        intervals:
+          - start: "5:24.052"
+            end: "5:27.609"
+            annotation: "leg 3 descend, cross_channel_spread on actuator_outputs.output[0], output[1], output[2], output[3]"
+            value: "output[0] vs output[1] vs output[2] vs output[3] 124.568 past max 101.8"
+      - category: sead_mechanical (error)
+        graph: Actuator Controls
+        color: "#d55e00"
+        intervals:
+          - start: "5:24.052"
+            end: "5:27.609"
+            annotation: "leg 3 descend, absolute_threshold on actuator_controls_0.control[3]"
+          - start: "5:24.055"
+            annotation: "first sample past threshold, max 0.9667"
+            value: "control[3] 0.9986"
+          - start: "5:27.609"
+            end: "5:49.958"
+            annotation: "leg 4 translate, absolute_threshold on actuator_controls_0.control[3]"
+          - start: "5:27.613"
+            annotation: "first sample past threshold, max 0.9305"
+            value: "control[3] 1.0018"
+      - category: sead_mechanical (error)
+        graph: Local Position Z
+        color: "#d55e00"
+        intervals:
+          - start: "5:24.052"
+            end: "5:27.609"
+            annotation: "leg 3 descend, cross_channel_spread on vehicle_local_position.z vs vehicle_local_position_setpoint.z"
+            value: "z vs z 1.3556 past max 1.31"
+      - category: sead_global_position (warn)
+        graph: Local Position Z
+        color: "#e69f00"
+        intervals:
+          - start: "5:24.052"
+            end: "5:27.609"
+            annotation: "leg 3 descend, cross_channel_spread on vehicle_local_position.z vs vehicle_local_position_setpoint.z"
+            value: "z vs z 1.3556 past max 0.9615"
+          - start: "5:27.609"
+            end: "5:49.958"
+            annotation: "leg 4 translate, cross_channel_spread on vehicle_local_position.z vs vehicle_local_position_setpoint.z"
+            value: "z vs z 1.8262 past max 1.523"
+      - category: sead_altitude (warn)
+        graph: Distance Sensor
+        color: "#e69f00"
+        intervals:
+          - start: "5:27.609"
+            end: "5:49.958"
+            annotation: "leg 4 translate, regression_residual on distance_sensor.current_distance vs vehicle_local_position.z"
+            value: "current_distance vs z 0.1911 past max 0.1636"
+      - category: sead_external_position (warn)
+        graph: Estimator Flags
+        color: "#e69f00"
+        intervals:
+          - start: "5:27.609"
+            end: "5:49.958"
+            annotation: "leg 4 translate, absolute_threshold on estimator_status.pos_horiz_accuracy"
+          - start: "5:34.264"
+            annotation: "first sample past threshold, max 3.045"
+            value: "pos_horiz_accuracy 4.6338"
+          - start: "5:49.958"
+            end: "5:51.887"
+            annotation: "leg 5 hover, absolute_threshold on ekf2_innovations.output_tracking_error[2]"
+          - start: "5:50.054"
+            annotation: "first sample past threshold, max 0.1324"
+            value: "output_tracking_error[2] 0.159"
+      - category: sead_external_position (warn)
+        graph: Local Position Y
+        color: "#e69f00"
+        intervals:
+          - start: "5:27.609"
+            end: "5:49.958"
+            annotation: "leg 4 translate, regression_residual on vehicle_local_position.y, vy"
+            value: "y vs vy 0.2364 past max 0.07986"
+      - category: sead_mechanical (warn)
+        graph: Local Position Z
+        color: "#e69f00"
+        intervals:
+          - start: "5:27.609"
+            end: "5:49.958"
+            annotation: "leg 4 translate, cross_channel_spread on vehicle_local_position.z vs vehicle_local_position_setpoint.z"
+            value: "z vs z 1.8262 past max 1.523"
+      - category: sead_mechanical (warn)
+        graph: Local Position Y
+        color: "#e69f00"
+        intervals:
+          - start: "5:27.609"
+            end: "5:49.958"
+            annotation: "leg 4 translate, regression_residual on vehicle_local_position.y, vy"
+            value: "y vs vy 0.2364 past max 0.07986"

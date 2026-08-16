@@ -1,0 +1,15 @@
+# Ground truth for 2019-03-22/07_46_23.ulg, from app/examples/sead-events.csv.
+# One category per annotated issue class. t_start_us/t_end_us are rounded to the
+# millisecond and written as the mm:ss the x axis prints.
+
+version: 1
+sources:
+  - name: Ground Truth
+    color: "#0072b2"
+    annotations:
+      - category: sead_mechanical
+        graph: Actuator Outputs (Main)
+        intervals:
+          - start: "5:48.015"
+            end: "5:58.623"
+            annotation: "annotator signal Actuator Outputs"

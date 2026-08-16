@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          # plot_app/libevents is copied into the image; the Dockerfile fails without it.
+          submodules: 'recursive'
       - name: Build the stack
         run: docker compose build --no-cache
    
